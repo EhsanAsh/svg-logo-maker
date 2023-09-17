@@ -29,6 +29,34 @@ const renderShape = (type, text, textColor, shapeColor, bgColor, ...args) => {
 // Creating a function to initialize app:
 const init = () => { 
 
+  console.log(`Welcome to the SVG Logo Creation Tool! 🎨
+
+  Ready to create a stunning SVG logo? Let's get started!
+  
+  Here's how it works:
+  
+  Text Input:
+  
+  You will first be prompted to provide a short text for your logo. This will be displayed prominently on your chosen shape.
+  Text Color:
+  
+  Choose a color for the text. You can either provide a standard color name (like 'red', 'blue', etc.) or use specific formats like HEX (#ff5733), RGB (rgb(255, 87, 51)), etc.
+  Shape Selection:
+  
+  Next, decide on the base shape of your logo. You can choose from:
+  Triangle 🔺
+  Circle ⚫
+  Square ◼️
+  Shape Color:
+  
+  Once you've chosen the shape, you'll be prompted to pick a color for it. Again, standard color names or specific formats are both acceptable.
+  Background Color:
+  
+  Lastly, choose a background color for your logo. This will set the tone for the entire design, so pick something that complements your text and shape colors!
+  Once you've provided all the necessary inputs, the application will generate a beautiful SVG logo tailored to your preferences. You can then download and use it as you see fit.
+  
+  Let's dive in! 💼`);
+
   // calling readFile to asynchronously read the data from data/questions.json:
   readFile("./data/questions.json", "utf-8")
     .then((json) => {
@@ -49,9 +77,13 @@ const init = () => {
       const shape = renderShape(type, text, textColor, shapeColor, bgColor, ...args);
 
       // calling writeFile to asynchronously write the shape to file:
-      return writeFile("./examples/${type}.html", shape);
+      return writeFile("./examples/logo.svg", shape);
 
-    });
+    })
+  
+    .then(() => console.log("Successfully created shape!"))
+  
+    .catch((err) => console.log(err));
 
 };
 
