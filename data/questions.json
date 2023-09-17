@@ -1,0 +1,9 @@
+{
+  "questions": [
+    {
+      "type": "input",
+      "name": "text",
+      "message": "Please enter the text for your logo. Please note that the text must be 3 characters long:"
+    }
+  ]
+}
