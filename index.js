@@ -6,23 +6,23 @@ const Triangle = require("./lib/childShapes.js").Triangle;
 const Circle = require("./lib/childShapes.js").Circle;
 const Square = require("./lib/childShapes.js").Square;
 // Creating a factory function to create the shapes ==>
-const shapeFactory = (type, text, textColor, shapeColor, bgColor, ...args) => {
+const shapeFactory = (type, text, textColor, shapeColor, bgColor, args) => {
 
   switch (type) { 
     case "triangle":
-      return new Triangle(text, textColor, shapeColor, bgColor, ...args);
+      return new Triangle(text, textColor, shapeColor, bgColor, args.base, args.height);
     case "circle":
-      return new Circle(text, textColor, shapeColor, bgColor, ...args);
+      return new Circle(text, textColor, shapeColor, bgColor, args.radius);
     case "square":
-      return new Square(text, textColor, shapeColor, bgColor, ...args);
+      return new Square(text, textColor, shapeColor, bgColor, args.side);
     default:
       throw new TypeError("Please enter a valid type");
   };
 
 };
 // Creating a function to render the shapes ==>
-const renderShape = (type, text, textColor, shapeColor, bgColor, ...args) => {
-  const shape = shapeFactory(type, text, textColor, shapeColor, bgColor, ...args);
+const renderShape = (type, text, textColor, shapeColor, bgColor, args) => {
+  const shape = shapeFactory(type, text, textColor, shapeColor, bgColor, args);
   return shape.render();
 };
 
@@ -109,7 +109,7 @@ Let's dive in! 💼
       const { type, text, textColor, shapeColor, bgColor, ...args } = answers;
 
       // calling renderShape to render the shape:
-      const shape = renderShape(type, text, textColor, shapeColor, bgColor, ...args);
+      const shape = renderShape(type, text, textColor, shapeColor, bgColor, args);
 
       // calling writeFile to asynchronously write the shape to file:
       return writeFile("./examples/logo.svg", shape);
