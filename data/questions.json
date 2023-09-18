@@ -1,0 +1,56 @@
+{
+  "questions": [
+    {
+      "type": "input",
+      "name": "text",
+      "message": "Please enter the text for your logo. Please note that the text must be 3 characters long:"
+    },
+    {
+      "type": "input",
+      "name": "textColor",
+      "message": "Please enter the text color for your logo. The text color must be a valid CSS color:",
+      "default": "#000000"
+    },
+    {
+      "type": "input",
+      "name": "bgColor",
+      "message": "Please enter the background color for your logo. The background color must be a valid CSS color:"
+    },
+    {
+      "type": "list",
+      "name": "type",
+      "message": "Please select the shapes you would like to use in your logo:",
+      "choices": ["circle", "square", "triangle"]
+    },
+    {
+      "type": "input",
+      "name": "radius",
+      "message": "Please enter the shape radius for your logo. The shape radius must be a number:",
+      "default": 50
+    },
+    {
+      "type": "input",
+      "name": "side",
+      "message": "Please enter the shape side length for your logo. The shape side length must be a number:",
+      "default": 50
+    },
+    {
+      "type": "input",
+      "name": "base",
+      "message": "Please enter the shape base for your logo. The shape base must be a number:",
+      "default": 50
+    },
+    {
+      "type": "input",
+      "name": "height",
+      "message": "Please enter the shape height for your logo. The shape height must be a number:",
+      "default": 50
+    },
+    {
+      "type": "input",
+      "name": "shapeColor",
+      "message": "Please enter the shape color for your logo. The shape color must be a valid CSS color:",
+      "default": "rgba(0, 0, 0, 0.5)"
+    }
+  ]
+}
