@@ -10,11 +10,11 @@ const shapeFactory = (type, text, textColor, shapeColor, bgColor, args) => {
 
   switch (type) { 
     case "triangle":
-      return new Triangle(text, textColor, shapeColor, bgColor, args.base, args.height);
+      return new Triangle(text, textColor, shapeColor, bgColor, parseFloat(args.base), parseFloat(args.height));
     case "circle":
-      return new Circle(text, textColor, shapeColor, bgColor, args.radius);
+      return new Circle(text, textColor, shapeColor, bgColor, parseFloat(args.radius));
     case "square":
-      return new Square(text, textColor, shapeColor, bgColor, args.side);
+      return new Square(text, textColor, shapeColor, bgColor, parseFloat(args.side));
     default:
       throw new TypeError("Please enter a valid type");
   };
