@@ -124,3 +124,5 @@ Let's dive in! 💼
 
 // Calling init to initialize app:
 init();
+
+module.exports = shapeFactory;
