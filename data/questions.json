@@ -17,24 +17,10 @@
       "message": "Please enter the background color for your logo. The background color must be a valid CSS color:"
     },
     {
-      "type": "checkbox",
+      "type": "list",
       "name": "type",
       "message": "Please select the shapes you would like to use in your logo:",
-      "choices": [
-        {
-          "name": "circle",
-          "value": "circle",
-          "checked": true
-        },
-        {
-          "name": "square",
-          "value": "square"
-        },
-        {
-          "name": "triangle",
-          "value": "triangle"
-        }
-      ]
+      "choices": ["circle", "square", "triangle"]
     },
     {
       "type": "input",

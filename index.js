@@ -30,32 +30,40 @@ const renderShape = (type, text, textColor, shapeColor, bgColor, ...args) => {
 const init = () => { 
 
   console.log(`Welcome to the SVG Logo Creation Tool! 🎨
+Ready to create a stunning SVG logo? Let's get started!
+Here's how it works:
 
-  Ready to create a stunning SVG logo? Let's get started!
-  
-  Here's how it works:
-  
-  Text Input:
-  
-  You will first be prompted to provide a short text for your logo. This will be displayed prominently on your chosen shape.
-  Text Color:
-  
-  Choose a color for the text. You can either provide a standard color name (like 'red', 'blue', etc.) or use specific formats like HEX (#ff5733), RGB (rgb(255, 87, 51)), etc.
-  Shape Selection:
-  
+Text Input:
+  You will first be prompted to provide a short text for your logo. This will be displayed
+  prominently on your chosen shape.
+
+Text Color:
+  Choose a color for the text. You can either provide a standard color name (like 'red', 'blue') or use specific formats like
+  HEX (#ff5733), RGB (rgb(255, 87, 51)), etc.
+
+Background Color:
+  choose a background color for your logo. This will set the tone for the entire design, so pick something that complements your
+  text and shape colors!
+
+Shape Selection:
   Next, decide on the base shape of your logo. You can choose from:
   Triangle 🔺
   Circle ⚫
   Square ◼️
-  Shape Color:
+
+Shape Size:
+  Depending on the shape you choose, you'll be prompted to provide the necessary dimensions. For example, if you choose a
+  circle, you'll be asked to provide a radius. If you choose a triangle, you'll be asked to provide a height and base.
+
+Shape Color:
+  Once you've chosen the shape, you'll be prompted to pick a color for it. Again, standard color
+  names or specific formats are both acceptable.
+
+Once you've provided all the necessary inputs, the application will generate a beautiful SVG logo tailored to your preferences.
+You can then download and use it as you see fit.
   
-  Once you've chosen the shape, you'll be prompted to pick a color for it. Again, standard color names or specific formats are both acceptable.
-  Background Color:
-  
-  Lastly, choose a background color for your logo. This will set the tone for the entire design, so pick something that complements your text and shape colors!
-  Once you've provided all the necessary inputs, the application will generate a beautiful SVG logo tailored to your preferences. You can then download and use it as you see fit.
-  
-  Let's dive in! 💼`);
+Let's dive in! 💼
+`);
 
   // calling readFile to asynchronously read the data from data/questions.json:
   readFile("./data/questions.json", "utf-8")
@@ -74,7 +82,7 @@ const init = () => {
             question.when = (answers) => answers.type === "circle";
             question.validate = (input) => !isNaN(parseFloat(input)) && input > 0 || "Please enter a valid radius";
             break;
-          case "sideLength":
+          case "side":
             question.when = (answers) => answers.type === "square";
             question.validate = (input) => !isNaN(parseFloat(input)) && input > 0 || "Please enter a valid side length";
             break;
