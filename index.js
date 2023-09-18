@@ -64,8 +64,35 @@ const init = () => {
       const data = JSON.parse(json);
       const questions = data.questions;
 
+      // Adding dynamic logic to the questions, based on the user's answers for shape type. This is done to ensure that the user is only asked relevant questions.
+      // Used inquirer's when property to add dynamic logic to the questions.
+      const modifiedQuestions = questions.map((question) => { 
+
+        switch (question.name) { 
+
+          case "radius":
+            question.when = (answers) => answers.type === "circle";
+            question.validate = (input) => !isNaN(parseFloat(input)) && input > 0 || "Please enter a valid radius";
+            break;
+          case "sideLength":
+            question.when = (answers) => answers.type === "square";
+            question.validate = (input) => !isNaN(parseFloat(input)) && input > 0 || "Please enter a valid side length";
+            break;
+          case "height":
+          case "base":
+            question.when = (answers) => answers.type === "triangle";
+            question.validate = (input) => !isNaN(parseFloat(input)) && input > 0 || "Please enter a valid height";
+            break;
+          default:
+            break;
+
+        };
+        return question;
+
+      });
+
       // calling inquirer.prompt to asynchronously ask the user questions:
-      return inquirer.prompt(questions);
+      return inquirer.prompt(modifiedQuestions);
 
     })
   

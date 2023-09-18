@@ -18,7 +18,7 @@
     },
     {
       "type": "checkbox",
-      "name": "shape",
+      "name": "type",
       "message": "Please select the shapes you would like to use in your logo:",
       "choices": [
         {
